@@ -25,6 +25,11 @@
     }
 
     .details {
+        .item {
+            white-space: nowrap; 
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
         .name {
             font-weight: bold;
         }

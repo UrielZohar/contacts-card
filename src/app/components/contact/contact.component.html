@@ -4,19 +4,27 @@
       <img src="assets/michael zimber.jpg" class="image">
     </div>
     <div class="col-6 col-sm-6 details">
-      <div class="name">
+      <div 
+        class="name item"
+        [title]="contactDetails.fullName">
           {{contactDetails.fullName}}
       </div>
-      <div class="location">
+      <div 
+        class="location item"
+        [title]="contactDetails.location">
         <i class="fa fa-map-marker"></i> {{contactDetails.location}}
-        <div>
+        <div class="item">
           {{contactDetails.lat}} {{contactDetails.lng}}  
         </div>
       </div>
-      <div class="company">
+      <div 
+        class="company item"
+        [title]="contactDetails.company">
           {{contactDetails.company}}
       </div>
-      <div class="phone-number">
+      <div 
+        class="phone-number item" 
+        [title]="contactDetails.phoneNumber">
           {{contactDetails.phoneNumber}}
       </div>
     </div>

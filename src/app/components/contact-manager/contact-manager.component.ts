@@ -10,7 +10,9 @@ export interface Contact {
   location: string,
   company: string,
   phoneNumner: string,
-  id: string
+  id: string,
+  lng?: string,
+  lat?: string
 }
 
 @Component({
@@ -30,7 +32,7 @@ export class ContactManagerComponent implements OnInit  {
 
   }
 
-  async addNewContact() {
+  addNewContact() {
     // mobile or pc
     let width = '300px';
     if (window.document.documentElement.clientWidth > 600) {
@@ -51,16 +53,16 @@ export class ContactManagerComponent implements OnInit  {
             if (!res.error_message) {
               newContact.lng = res.results[0].geometry.location.lng;
               newContact.lat = res.results[0].geometry.location.lat;
+            } else {
+              newContact.lng = 0;
+              newContact.lat = 0;
             }
         });
       }
-      console.log('The dialog was closed');
-      console.log(newContact);
     });
   }
 
   deleteContact(contactId) {
-    debugger;
     this.contacts = this.contacts.filter(contact => {
       return contact.id != contactId;
     });
@@ -87,7 +89,17 @@ export class ContactManagerComponent implements OnInit  {
       // edit
       if (editedContact) {
         Object.assign(contactToEdit, editedContact);
+        this.http.get(`https://maps.googleapis.com/maps/api/geocode/json?address=${editedContact.location}&key=AIzaSyDKvvBgAkSCugEbXckutuAFuqPzthsCnJ8`).subscribe( (res: any) => {
+            if (!res.error_message) {
+              contactToEdit.lng = res.results[0].geometry.location.lng;
+              contactToEdit.lat = res.results[0].geometry.location.lat;
+            } else {
+              contactToEdit.lng = "0";
+              contactToEdit.lat = "0";
+            }
+        });
       }
+
     });
   }
 
