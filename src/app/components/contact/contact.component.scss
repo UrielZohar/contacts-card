@@ -1,0 +1,48 @@
+
+.contact {
+    position: relative;
+    padding: 10px;
+    
+    .wrapper {
+        position: relative;
+        background-color: white;
+        height: 150px;
+        padding: 5px;
+    }
+
+    .contact-image {
+        position: relative;
+        .image {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin: 0;
+            position: absolute;
+            top: 50%;
+            -ms-transform: translateY(-50%);
+            transform: translateY(-50%);
+        }
+    }
+
+    .details {
+        .name {
+            font-weight: bold;
+        }
+
+        .company {
+            font-weight: bold;
+        }
+    }
+
+    .actions {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+
+        .action {
+            margin-left: 5px;
+            margin-right: 5px;
+            cursor: pointer;
+        }
+    }
+}

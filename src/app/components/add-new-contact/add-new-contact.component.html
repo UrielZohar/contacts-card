@@ -1,0 +1,36 @@
+<h1 mat-dialog-title>Add New Contact</h1>
+<div mat-dialog-content>
+  <p>Full Name</p>
+  <mat-form-field>
+    <input matInput [(ngModel)]="contactData.fullName">
+  </mat-form-field>
+  <p>Location</p>
+  <mat-form-field>
+    <input matInput [(ngModel)]="contactData.location">
+  </mat-form-field>
+  <p>Company</p>
+  <mat-form-field>
+    <input matInput [(ngModel)]="contactData.company">
+  </mat-form-field>
+  <p>Phone Number</p>
+  <mat-form-field>
+    <input 
+      matInput 
+      [(ngModel)]="contactData.phoneNumber"
+      #phoneNumberCtrl="ngModel"
+      pattern="[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\s\./0-9]*$">
+    <mat-error *ngIf="!phoneNumberCtrl.valid">
+      Phone number invalid
+    </mat-error>
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onCancelClick()">Cancel</button>
+  <button 
+    mat-button 
+    (click)="onAddClick()"
+    [disabled]="!phoneNumberCtrl.valid || !contactData.phoneNumber" 
+    cdkFocusInitial>
+    Add
+  </button>
+</div>

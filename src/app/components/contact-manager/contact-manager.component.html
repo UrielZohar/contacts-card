@@ -1,0 +1,18 @@
+<div class="container contact-manager">
+  <div class="row">
+    <div 
+      *ngFor="let contact of contacts"
+      class="col-sm-4 col-12">
+      <app-contact 
+        [details]="contact"
+        (deleteMe)="deleteContact($event)"
+        (editMe)="editContact($event)">
+      </app-contact>
+    </div>
+    <div class="col-sm-4 col-12 add-new-contact">
+      <div class="wrapper">
+        <i (click)="addNewContact()" class="fa fa-plus-circle add-new-contact-icon" aria-hidden="true"></i>
+      </div>
+    </div>
+  </div>
+</div> 

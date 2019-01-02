@@ -1,0 +1,28 @@
+.contact-manager {
+    height: 100%;
+    background-color: #e7e6e7;
+}
+
+.add-new-contact {
+    font-size: 30px;
+    color: #493bc5;
+    text-align: center;
+    position: relative;
+    padding: 10px;
+    
+    .wrapper {
+        height: 150px;
+        position: relative;
+        background-color: white;
+        padding: 5px;
+    }
+
+    .add-new-contact-icon {
+        cursor: pointer;
+        margin: 0;
+        position: absolute;
+        top: 50%;
+        -ms-transform: translateY(-50%);
+        transform: translateY(-50%);
+    }
+}

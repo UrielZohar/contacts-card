@@ -1,0 +1,28 @@
+<div class="contact">
+  <div class="row wrapper">
+    <div class="col-4 col-sm-4 contact-image">
+      <img src="assets/michael zimber.jpg" class="image">
+    </div>
+    <div class="col-6 col-sm-6 details">
+      <div class="name">
+          {{contactDetails.fullName}}
+      </div>
+      <div class="location">
+        <i class="fa fa-map-marker"></i> {{contactDetails.location}}
+        <div>
+          {{contactDetails.lat}} {{contactDetails.lng}}  
+        </div>
+      </div>
+      <div class="company">
+          {{contactDetails.company}}
+      </div>
+      <div class="phone-number">
+          {{contactDetails.phoneNumber}}
+      </div>
+    </div>
+    <div class="actions">
+      <i class="fa fa-trash action" (click)="deleteContact()"></i>
+      <i class="fa fa-edit action" (click)="editContact()"></i>
+    </div>
+  </div>
+</div>
